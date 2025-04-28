@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Titanic Survival Predictor</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body style="background-color: #f8f9fa;">
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="card shadow-lg p-4">
+                <h2 class="text-center mb-4">🚢 Titanic Survival Predictor</h2>
+
+                <form action="/predict" method="post">
+                    <div class="form-group mb-3">
+                        <label>Pclass (1, 2, 3):</label>
+                        <input type="number" name="Pclass" class="form-control" required>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label>Gender (0 = Male, 1 = Female):</label>
+                        <input type="number" name="Gender" class="form-control" required>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label>Age:</label>
+                        <input type="number" name="Age" class="form-control" required>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label>Siblings/Spouses Aboard (SibSp):</label>
+                        <input type="number" name="SibSp" class="form-control" required>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label>Parents/Children Aboard (Parch):</label>
+                        <input type="number" name="Parch" class="form-control" required>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label>Fare:</label>
+                        <input type="number" name="Fare" class="form-control" required>
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <label>Embarked (0 = S, 1 = C, 2 = Q):</label>
+                        <input type="number" name="Embarked" class="form-control" required>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">Predict</button>
+                    </div>
+                </form>
+
+                {% if prediction_text %}
+                    <div class="alert alert-info mt-4 text-center">
+                        <h4>{{ prediction_text }}</h4>
+                    </div>
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
